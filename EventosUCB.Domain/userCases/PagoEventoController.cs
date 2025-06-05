@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using EventosUCB.Interface;
 using EventosUCB.Models;
 
+namespace EventosUCB.Controllers;
 public class PagoEventoController : IPagoEventoController
 {
     public string generarQr(int IdEvento)
