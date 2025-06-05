@@ -7,7 +7,6 @@ C:\Users\dikyd\OneDrive\Escritorio\Eventos\EventosUCB\obj\Debug\net9.0\EventosUC
 C:\Users\dikyd\OneDrive\Escritorio\Eventos\EventosUCB\obj\Debug\net9.0\EventosUCB.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\dikyd\OneDrive\Escritorio\Eventos\EventosUCB\obj\Debug\net9.0\EventosUCB.sourcelink.json
 C:\Users\dikyd\OneDrive\Escritorio\Eventos\EventosUCB\bin\Debug\net9.0\appsettings.Development.json
-C:\Users\dikyd\OneDrive\Escritorio\Eventos\EventosUCB\bin\Debug\net9.0\appsettings.json
 C:\Users\dikyd\OneDrive\Escritorio\Eventos\EventosUCB\bin\Debug\net9.0\EventosUCB.staticwebassets.endpoints.json
 C:\Users\dikyd\OneDrive\Escritorio\Eventos\EventosUCB\bin\Debug\net9.0\EventosUCB.exe
 C:\Users\dikyd\OneDrive\Escritorio\Eventos\EventosUCB\bin\Debug\net9.0\EventosUCB.deps.json
@@ -32,3 +31,7 @@ C:\Users\dikyd\OneDrive\Escritorio\Eventos\EventosUCB\obj\Debug\net9.0\refint\Ev
 C:\Users\dikyd\OneDrive\Escritorio\Eventos\EventosUCB\obj\Debug\net9.0\EventosUCB.pdb
 C:\Users\dikyd\OneDrive\Escritorio\Eventos\EventosUCB\obj\Debug\net9.0\EventosUCB.genruntimeconfig.cache
 C:\Users\dikyd\OneDrive\Escritorio\Eventos\EventosUCB\obj\Debug\net9.0\ref\EventosUCB.dll
+C:\Users\dikyd\OneDrive\Escritorio\Eventos\EventosUCB\bin\Debug\net9.0\EventosUCB.API\appsettings.json
+C:\Users\dikyd\OneDrive\Escritorio\Eventos\EventosUCB\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\dikyd\OneDrive\Escritorio\Eventos\EventosUCB\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\dikyd\OneDrive\Escritorio\Eventos\EventosUCB\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
