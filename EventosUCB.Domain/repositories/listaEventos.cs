@@ -1,10 +1,8 @@
 public class listaEventos
 {
-    public List<Eventos> { get; set }
+    public List<Eventos> eventos { get; set; }
     
     public listaEventos() {
-        listaEventos = {
-
-        }
+        eventos = new List<Eventos>();
     }
 }

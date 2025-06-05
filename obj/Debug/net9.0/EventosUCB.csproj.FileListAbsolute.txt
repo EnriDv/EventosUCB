@@ -1,0 +1,8 @@
+C:\Users\dikyd\OneDrive\Escritorio\Eventos\EventosUCB\obj\Debug\net9.0\EventosUCB.csproj.AssemblyReference.cache
+C:\Users\dikyd\OneDrive\Escritorio\Eventos\EventosUCB\obj\Debug\net9.0\EventosUCB.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dikyd\OneDrive\Escritorio\Eventos\EventosUCB\obj\Debug\net9.0\EventosUCB.AssemblyInfoInputs.cache
+C:\Users\dikyd\OneDrive\Escritorio\Eventos\EventosUCB\obj\Debug\net9.0\EventosUCB.AssemblyInfo.cs
+C:\Users\dikyd\OneDrive\Escritorio\Eventos\EventosUCB\obj\Debug\net9.0\EventosUCB.csproj.CoreCompileInputs.cache
+C:\Users\dikyd\OneDrive\Escritorio\Eventos\EventosUCB\obj\Debug\net9.0\EventosUCB.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\dikyd\OneDrive\Escritorio\Eventos\EventosUCB\obj\Debug\net9.0\EventosUCB.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\dikyd\OneDrive\Escritorio\Eventos\EventosUCB\obj\Debug\net9.0\EventosUCB.sourcelink.json
