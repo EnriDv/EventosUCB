@@ -1,5 +1,8 @@
-[ApiController]
-[Route("[controller]")]
+
+using Microsoft.AspNetCore.Mvc;
+using EventosUCB.Interface;
+using EventosUCB.Models;
+
 public class PagoEventoController : IPagoEventoController
 {
     public string generarQr(int IdEvento)

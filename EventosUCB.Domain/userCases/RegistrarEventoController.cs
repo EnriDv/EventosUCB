@@ -1,5 +1,7 @@
-[ApiController]
-[Route("[controller]")]
+using Microsoft.AspNetCore.Mvc;
+using EventosUCB.Interface;
+using EventosUCB.Models;
+
 public class RegistrarEventoController : IRegistrarEventoController
 {
     public bool validarUsuarioRepetido(int IdUsuario)

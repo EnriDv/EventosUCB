@@ -1,5 +1,7 @@
-[ApiController]
-[Route("[controller]")]
+using Microsoft.AspNetCore.Mvc;
+using EventosUCB.Interface;
+using EventosUCB.Models;
+
 public class EventoController : IEventoController
 {
     public List<Evento> listarEventos()

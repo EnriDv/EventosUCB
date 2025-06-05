@@ -1,8 +1,9 @@
+using EventosUCB.Models;
 public class listaEventos
 {
-    public List<Eventos> eventos { get; set; }
-    
-    public listaEventos() {
-        eventos = new List<Eventos>();
+    public List<Evento> eventos { get; set; }
+    public listaEventos()
+    {
+        eventos = new List<Evento>();
     }
 }
