@@ -23,8 +23,9 @@ Diagrama de casos de Uso:
 ## Metodos HttpGet desde el navegador:
 
 - https://localhost:(ruta en ejecucion)/api/eventos
-- https://localhost:(ruta en ejecucion)/api/eventos/usuario/1234567/pagos
-- https://localhost:(ruta en ejecucion)/api/eventos/usuario/1234567/inscripciones
+- https://localhost:(ruta en ejecucion)/api/eventos/usuario/1234567/pagos (ejemplo de ci)
+- https://localhost:(ruta en ejecucion)/api/eventos/usuario/1234567/pagos-pendientes (ejemplo de ci)
+- https://localhost:(ruta en ejecucion)/api/eventos/usuario/1234567/inscripciones (ejemplo de ci)
 
 ## desde postman: 
 
