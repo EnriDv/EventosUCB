@@ -42,7 +42,7 @@ namespace EventApp.Application.Services
         public async Task<InscripcionDto?> RegisterForEvent(int eventId, string userCi)
         {
             var evento = await _eventoRepo.GetById(eventId);
-            if (evento == null) return null; 
+            if (evento == null) return null;
 
             var usuario = await _usuarioRepo.GetByCi(userCi);
             if (usuario == null) return null;
@@ -50,7 +50,7 @@ namespace EventApp.Application.Services
             if (!evento.EsVigente()) return null;
 
             var existingInscripcion = await _inscripcionRepo.GetByEventAndUser(eventId, userCi);
-            if (existingInscripcion != null) return null; 
+            if (existingInscripcion != null) return null;
 
             var currentInscripcionesForEvent = await _inscripcionRepo.GetByEventId(eventId);
             if (currentInscripcionesForEvent.Count() >= evento.Capacidad) return null;
@@ -95,13 +95,13 @@ namespace EventApp.Application.Services
         public async Task<bool> PayForInscription(int inscripcionId, decimal amount)
         {
             var inscripcion = await _inscripcionRepo.GetById(inscripcionId);
-            if (inscripcion == null) return false; 
+            if (inscripcion == null) return false;
 
             var pago = await _pagoRepo.GetByInscripcionId(inscripcionId);
-            if (pago == null) return false; 
+            if (pago == null) return false;
 
             if (pago.Estado == "COMPLETADO") return false;
-            if (amount < pago.Monto) return false; 
+            if (amount < pago.Monto) return false;
 
             pago.Estado = "COMPLETADO";
             pago.FechaPago = DateTime.UtcNow;
@@ -170,6 +170,40 @@ namespace EventApp.Application.Services
                         UsuarioNombre = usuario.Nombre,
                         CostoEvento = (decimal)(evento?.Costo ?? 0),
                         EstadoPago = pago.Estado
+                    });
+                }
+            }
+            return dtos;
+        }
+        public async Task<IEnumerable<InscripcionDto>> GetUserPendingPayments(string userCi)
+        {
+            var usuario = await _usuarioRepo.GetByCi(userCi);
+            if (usuario == null) return Enumerable.Empty<InscripcionDto>();
+
+            // Obtener todas las inscripciones del usuario
+            var inscripciones = await _inscripcionRepo.GetByUserId(userCi);
+            
+            var dtos = new List<InscripcionDto>();
+
+            foreach (var insc in inscripciones)
+            {
+                var pago = await _pagoRepo.GetByInscripcionId(insc.IdInscripcion);
+                
+                // Si la inscripción está pendiente de pago o el pago está pendiente, la incluimos
+                if (insc.Estado == "PENDIENTE_PAGO" || (pago != null && pago.Estado == "PENDIENTE"))
+                {
+                    var evento = await _eventoRepo.GetById(insc.IdEvento);
+                    dtos.Add(new InscripcionDto
+                    {
+                        Id = insc.IdInscripcion,
+                        EventoId = insc.IdEvento,
+                        UsuarioCi = insc.UsuarioCi,
+                        FechaInscripcion = insc.FechaInscripcion,
+                        EstadoInscripcion = insc.Estado,
+                        EventoNombre = evento?.Nombre ?? "Desconocido",
+                        UsuarioNombre = usuario.Nombre,
+                        CostoEvento = (decimal)(evento?.Costo ?? 0),
+                        EstadoPago = pago?.Estado ?? "N/A" // Podría ser "PENDIENTE" aquí
                     });
                 }
             }

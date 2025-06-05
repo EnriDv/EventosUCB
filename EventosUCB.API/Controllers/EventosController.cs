@@ -18,7 +18,6 @@ namespace EventApp.Api.Controllers
         }
 
         [HttpGet]
-        // CAMBIO AQUÍ: Eliminar el HttpStatusCode duplicado
         [ProducesResponseType(typeof(IEnumerable<EventResponse>), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> GetAvailableEvents()
         {
@@ -36,7 +35,6 @@ namespace EventApp.Api.Controllers
         }
 
         [HttpPost("registrarse")]
-        // CAMBIO AQUÍ: Eliminar el HttpStatusCode duplicado
         [ProducesResponseType(typeof(IEnumerable<RegisteredUserResponse>), (int)HttpStatusCode.Created)]
         [ProducesResponseType(typeof(string), (int)HttpStatusCode.BadRequest)]
         public async Task<IActionResult> RegisterForEvent([FromBody] RegisterRequest request)
@@ -67,12 +65,10 @@ namespace EventApp.Api.Controllers
                     });
                 }
             }
-            // CAMBIO AQUÍ: Eliminar el HttpStatusCode duplicado
             return StatusCode((int)HttpStatusCode.Created, registeredUsersForEvent);
         }
 
         [HttpPost("pagar")]
-        // CAMBIO AQUÍ: Eliminar el HttpStatusCode duplicado
         [ProducesResponseType((int)HttpStatusCode.NoContent)]
         [ProducesResponseType(typeof(string), (int)HttpStatusCode.BadRequest)]
         public async Task<IActionResult> PayForInscription([FromBody] PayRequest request)
@@ -87,13 +83,12 @@ namespace EventApp.Api.Controllers
         }
 
         [HttpGet("usuario/{userCi}/inscripciones")]
-        // CAMBIO AQUÍ: Eliminar el HttpStatusCode duplicado
         [ProducesResponseType(typeof(IEnumerable<EventApp.Application.Dtos.InscripcionDto>), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(string), (int)HttpStatusCode.NotFound)]
         public async Task<IActionResult> GetUserInscribedEvents(string userCi)
         {
             var inscripciones = await _gestionarEventosService.GetUserInscribedEvents(userCi);
-            
+
             if (!inscripciones.Any())
             {
                 return NotFound($"Usuario con CI '{userCi}' no encontrado o no tiene inscripciones.");
@@ -102,19 +97,31 @@ namespace EventApp.Api.Controllers
         }
 
         [HttpGet("usuario/{userCi}/pagos")]
-        // CAMBIO AQUÍ: Eliminar el HttpStatusCode duplicado
         [ProducesResponseType(typeof(IEnumerable<EventApp.Application.Dtos.InscripcionDto>), (int)HttpStatusCode.OK)]
-        // CAMBIO AQUÍ: Aquí tenías un error de tipo HttpStatusCode.HttpStatusCode.NotFound
         [ProducesResponseType(typeof(string), (int)HttpStatusCode.NotFound)]
         public async Task<IActionResult> GetUserPaidEvents(string userCi)
         {
             var inscripciones = await _gestionarEventosService.GetUserPaidEvents(userCi);
-            
+
             if (!inscripciones.Any())
             {
                 return NotFound($"Usuario con CI '{userCi}' no encontrado o no tiene pagos completados.");
             }
             return Ok(inscripciones);
+        }
+        
+        [HttpGet("usuario/{userCi}/pagos-pendientes")]
+        [ProducesResponseType(typeof(IEnumerable<EventApp.Application.Dtos.InscripcionDto>), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(string), (int)HttpStatusCode.NotFound)]
+        public async Task<IActionResult> GetUserPendingPayments(string userCi)
+        {
+            var inscripcionesPendientes = await _gestionarEventosService.GetUserPendingPayments(userCi);
+            
+            if (!inscripcionesPendientes.Any())
+            {
+                return NotFound($"Usuario con CI '{userCi}' no encontrado o no tiene pagos pendientes.");
+            }
+            return Ok(inscripcionesPendientes);
         }
     }
 }
